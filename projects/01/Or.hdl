@@ -4,7 +4,7 @@
 // File name: projects/01/Or.hdl
 
  /**
- * Or gate:
+ * 3. Or gate:
  * out = 1 if (a == 1 or b == 1)
  *       0 otherwise
  */
@@ -14,5 +14,12 @@ CHIP Or {
     OUT out;
 
     PARTS:
-    // Put your code here:
+    // Nand, Not, And
+    // Nand = 1 if any 0
+    // And = 1 if both are 1 = Not(Nand)
+    // Or = 1 if any 1 
+    // Or = Nand(Not(a), Not(b))
+    Not(in=a, out=nota);
+    Not(in=b, out=notb);
+    Nand(a=nota, b=notb, out=out);
 }

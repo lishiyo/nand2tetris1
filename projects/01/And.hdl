@@ -4,6 +4,7 @@
 // File name: projects/01/And.hdl
 
 /**
+ * Nand: out = 1 unless both are 1
  * And gate: 
  * out = 1 if (a == 1 and b == 1)
  *       0 otherwise
@@ -14,5 +15,15 @@ CHIP And {
     OUT out;
 
     PARTS:
-    // Put your code here:
+    // Nand-only
+    // connect Nand's "a" pin to my chip's "a"
+    // create internal pin/wire named "x"
+    // connect Nand's output pin to "x"
+    // Nand(a=a, b=b, out=x);
+    // Nand(a=a, b=b, out=y);
+    // connect Nand's "a" pin to internal wire "x"
+    // Nand(a=x, b=y, out=out);
+
+    Nand(a=a, b=b, out=x);
+    Not(in=x, out=out);
 }
